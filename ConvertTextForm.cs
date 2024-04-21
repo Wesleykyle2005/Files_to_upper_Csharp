@@ -62,7 +62,7 @@ namespace ConvertText
                         {
                             string content = await _fileRepository.ReadAsync(filePath);
                             string upperContent = content.ToUpper();
-                            await _fileRepository.WriteAsync(filePath + "_mayus.txt", upperContent);
+                            await _fileRepository.WriteAsync(Path.Combine(Path.GetDirectoryName(filePath),Path.GetFileNameWithoutExtension(filePath) + "_mayus.txt"), upperContent);
                         }
                         catch (IOException ex)
                         {
